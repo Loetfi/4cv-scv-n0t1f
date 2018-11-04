@@ -20,11 +20,11 @@ class EmailSendgrid extends Mailable
 
     public function build()
     {
-        $address = 'ahmaddjunaedi92@gmail.com';
-        $subject = 'This is a demo!';
-        $name = 'Jane Doe';
+        $address = 'info@acv-astra.co.id';
+        $subject = $this->data['Subject'];
+        $name = 'Astra Car Valuation';
 
-        // print_r($this->data['message']);die();
+        // print_r($this->data);die();
         
         return $this->view('email_sendgrid')
                     ->from($address, $name)
@@ -32,6 +32,6 @@ class EmailSendgrid extends Mailable
                     // ->bcc($address, $name)
                     // ->replyTo($address, $name)
                     ->subject($subject)
-                    ->with([ 'text' => $this->data['message'] ]);
+                    ->with([ 'text' => $this->data['Body'] ]);
     }
 }
