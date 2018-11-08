@@ -392,6 +392,7 @@ class ComposerStaticInita47775627f7a531fb5f12cecf90b0f08
         'App\\Jobs\\Job' => __DIR__ . '/../..' . '/app/Jobs/Job.php',
         'App\\Listeners\\ExampleListener' => __DIR__ . '/../..' . '/app/Listeners/ExampleListener.php',
         'App\\Mail\\EmailSendgrid' => __DIR__ . '/../..' . '/app/Mail/EmailSendgrid.php',
+        'App\\Models\\Email' => __DIR__ . '/../..' . '/app/Models/Email.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',

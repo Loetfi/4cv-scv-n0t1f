@@ -21,6 +21,7 @@ return array(
     'App\\Jobs\\Job' => $baseDir . '/app/Jobs/Job.php',
     'App\\Listeners\\ExampleListener' => $baseDir . '/app/Listeners/ExampleListener.php',
     'App\\Mail\\EmailSendgrid' => $baseDir . '/app/Mail/EmailSendgrid.php',
+    'App\\Models\\Email' => $baseDir . '/app/Models/Email.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
