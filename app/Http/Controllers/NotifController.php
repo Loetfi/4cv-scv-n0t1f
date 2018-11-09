@@ -22,10 +22,10 @@ class NotifController extends Controller
 			// print_r($request->all());
 			$data = [
 				'Body' 		=> $request->body,
-				'Subject' 	=> 'ACV - Active Account',
+				'Subject' 	=> $request->subject ? $request->subject : null,
 				'To' 		=> $request->to,
-				'Cc'		=> $request->Cc ? $request->Cc : null,
-				// 'Attacment' => 
+				'Cc'		=> $request->cc ? $request->cc : null,
+				'Attachment' => $request->attacment ? $request->attacment : null,
 			];
 
         	Mail::to($request->to)->send(new EmailSendgrid($data));

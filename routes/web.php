@@ -15,4 +15,4 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->post('/send-email','NotifController@sendEmail');
+$router->post('send-email','NotifController@sendEmail');
