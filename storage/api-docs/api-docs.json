@@ -9,7 +9,7 @@
         "https"
     ],
     "paths": {
-        "/4cv-scv-n0t1f/public/send-email": {
+        "/service-notif/send-email": {
             "post": {
                 "tags": [
                     "Email"
