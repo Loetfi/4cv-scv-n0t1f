@@ -10,22 +10,21 @@ use App\Repositories\SendgridRepo;
 
 class NotifController extends Controller
 {
-
-	public function __construct()
-	{
-
-	}
-
+	/**
+	* @param body,to
+	* @param cc, subject attachment can be null
+	* @return response json  
+	*/
 	public function sendEmail(Request $request)
 	{
 		try {
 			// print_r($request->all());
 			$data = [
 				'Body' 		=> $request->body,
-				'Subject' 	=> $request->subject ? $request->subject : null,
 				'To' 		=> $request->to,
 				'Cc'		=> $request->cc ? $request->cc : null,
-				'Attachment' => $request->attacment ? $request->attacment : null,
+				'Subject' 	=> $request->subject ? $request->subject : null,
+				'Attachment' => $request->attacment ? $request->attacment : null, // belom kelar
 			];
 
         	Mail::to($request->to)->send(new EmailSendgrid($data));
@@ -33,9 +32,9 @@ class NotifController extends Controller
         	$status   		= 1;
             $httpcode 		= 200;
             $data 			= ['email' => SendgridRepo::SaveNotif($data)];
-            $errorMsg 		= 'Please check your email to active account';
+            $errorMsg 		= 'Cek email anda untuk aktivasi akun';
 		
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
         	
 			$status   = 0;
             $httpcode = 500;
