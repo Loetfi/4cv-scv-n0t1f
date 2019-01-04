@@ -19,13 +19,14 @@ class NotifController extends Controller
 	{
 		try {
 			$data = [
-				'Body' 		=> $request->body,
-				'To' 		=> $request->to,
-				'Cc'		=> $request->cc ? $request->cc : null,
-				'Subject' 	=> $request->subject ? $request->subject : null,
-				'Attachment' => $request->attacment ? $request->attacment : null, // belom kelar
-				'Campaign'	=> $request->campaign ? $request->campaign : null, 
-				'IsUsed'	=> 0,
+				'Body' 			=> $request->body,
+				'To' 			=> $request->to,
+				'Cc'			=> $request->cc ? $request->cc : null,
+				'Subject' 		=> $request->subject ? $request->subject : null,
+				'Attachment' 	=> $request->attacment ? $request->attacment : null, // belom kelar
+				'Campaign'		=> $request->campaign ? $request->campaign : null, 
+				'IsUsed'		=> 0,
+				'CreatedAt'    	=> \Carbon\Carbon::now()->format('Y-m-d H:i:s'),
 			];
 
         	Mail::to($request->to)->send(new EmailSendgrid($data));
