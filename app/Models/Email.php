@@ -11,11 +11,11 @@ class Email extends Model
 	protected $primaryKey = 'EmailId';
 
     protected $fillable = [
-        'Subject', 'To','Body','Cc','Attacment'
+        'Subject', 'To','Body','Cc','Attacment','Campaign','IsUsed'
     ];
 
     protected $dates = [
-        'created_at',
-        'updated_at'
+        'CreatedAt',
+        'UpdatedAt'
     ];
 }

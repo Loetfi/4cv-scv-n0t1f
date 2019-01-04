@@ -18,13 +18,14 @@ class NotifController extends Controller
 	public function sendEmail(Request $request)
 	{
 		try {
-			// print_r($request->all());
 			$data = [
 				'Body' 		=> $request->body,
 				'To' 		=> $request->to,
 				'Cc'		=> $request->cc ? $request->cc : null,
 				'Subject' 	=> $request->subject ? $request->subject : null,
 				'Attachment' => $request->attacment ? $request->attacment : null, // belom kelar
+				'Campaign'	=> $request->campaign ? $request->campaign : null, 
+				'IsUsed'	=> 0,
 			];
 
         	Mail::to($request->to)->send(new EmailSendgrid($data));

@@ -48,16 +48,16 @@
                                     "type": "string",
                                     "example": "Body"
                                 },
-                                "type": {
-                                    "type": "string",
-                                    "example": "email"
-                                },
                                 "attachment": {
                                     "type": "string",
                                     "example": ""
                                 },
+                                "campaign": {
+                                    "type": "string",
+                                    "example": ""
+                                },
                             },
-                            "required": ["to", "subject","body","type","attachment"],
+                            "required": ["to", "subject","body"],
                             "$schema": "http://json-schema.org/draft-04/schema#"
                         }
                     }

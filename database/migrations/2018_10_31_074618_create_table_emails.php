@@ -17,10 +17,13 @@ class CreateTableEmails extends Migration
             $table->increments('EmailId');
             $table->string('Subject');
             $table->string('To');
-            $table->string('Body');
+            $table->text('Body');
             $table->string('Cc')->nullable();
             $table->string('Attachment')->nullable();
-            $table->timestamps();
+            $table->string('Campaign')->nullable();
+            $table->string('IsUsed', 1)->nullable();
+            $table->dateTime('CreatedAt')->nullable();
+            $table->dateTime('UpdatedAt')->nullable();
         });
     }
 
