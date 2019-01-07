@@ -17,6 +17,12 @@ class NotifController extends Controller
 	*/
 	public function sendEmail(Request $request)
 	{
+		$validation = $this->validate($request, [
+	        'Body'       	=> 'required',
+	        'To'  			=> 'required|email', 
+	        'Cc'  	 		=> 'email',
+	    ]);
+		
 		try {
 			$data = [
 				'Body' 			=> $request->body,
@@ -29,11 +35,15 @@ class NotifController extends Controller
 				'CreatedAt'    	=> \Carbon\Carbon::now()->format('Y-m-d H:i:s'),
 			];
 
+			// send to email
         	Mail::to($request->to)->send(new EmailSendgrid($data));
-
+        	// save to db
+        	SendgridRepo::SaveNotif($data);
+        	
         	$status   		= 1;
             $httpcode 		= 200;
-            $data 			= ['email' => SendgridRepo::SaveNotif($data)];
+            // $data 			= ['email' => SendgridRepo::SaveNotif($data)];
+            $data 			= [];
             $errorMsg 		= 'Cek email anda untuk aktivasi akun';
 		
 		} catch (\Exception $e) {
