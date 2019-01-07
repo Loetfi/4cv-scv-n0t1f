@@ -18,17 +18,18 @@ class NotifController extends Controller
 	public function sendEmail(Request $request)
 	{
 		$validation = $this->validate($request, [
+	        'Subject'		=> 'required', 
 	        'Body'       	=> 'required',
-	        'To'  			=> 'required|email', 
+	        'To'  			=> 'required|email',
 	        'Cc'  	 		=> 'email',
 	    ]);
-		
+
 		try {
 			$data = [
+				'Subject' 		=> $request->subject,
 				'Body' 			=> $request->body,
 				'To' 			=> $request->to,
 				'Cc'			=> $request->cc ? $request->cc : null,
-				'Subject' 		=> $request->subject ? $request->subject : null,
 				'Attachment' 	=> $request->attacment ? $request->attacment : null, // belom kelar
 				'Campaign'		=> $request->campaign ? $request->campaign : null, 
 				'IsUsed'		=> 0,
